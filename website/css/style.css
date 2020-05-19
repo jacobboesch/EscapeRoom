@@ -1,0 +1,35 @@
+.resize-drag {
+    border:none;
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius: 8px;
+    touch-action: none;
+    width: 120px;
+    height: 120px;
+    /* This makes things *much* easier */
+    box-sizing: border-box;
+}
+
+.rotation-handle {
+padding: 3px 4px;
+display: table;
+position: absolute;
+left: 50%;
+right: 50%;
+bottom: -35px;
+background-color: #7DF9FF;
+border-radius: 10rem;
+line-height: 1;
+text-align: center;
+font-weight: bold;
+color: #fff;
+cursor: move;
+}
+.box {
+width: 150px;
+height: 100px;
+position: relative;
+background-color: #4be091;
+border-radius: 6px;
+}

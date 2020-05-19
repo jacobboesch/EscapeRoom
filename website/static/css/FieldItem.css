@@ -1,0 +1,46 @@
+.drag-resize-container {
+    border:none;
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius: 8px;
+    touch-action: none;
+    width: 120px;
+    height: 120px;
+    /* This makes things *much* easier */
+    box-sizing: border-box;
+}
+
+.inspector {
+    padding: 3px 4px;
+    display: table;
+    position: absolute;
+    left: 75%;
+    right: 75%;
+    bottom: -35px;
+    background-color: #FF7F00;
+    border-radius: 10rem;
+    line-height: 1;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    cursor: move;
+    touch-action: none;
+}
+
+.flipButton{
+    padding: 3px 4px;
+    display: table;
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    bottom: -35px; 
+    background-color: #00ff00;
+    border-radius: 10rem;
+    line-height: 1;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    cursor: move;
+    touch-action: none;
+}
