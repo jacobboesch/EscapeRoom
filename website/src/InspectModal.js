@@ -4,7 +4,8 @@ import _ from 'semantic-ui-css';
 
 export default class InspectModal extends Component{
     _images; 
-    _slideIndex; 
+    _slideIndex;
+    _imageTitle; 
 
     constructor(images){
         super(html, document.getElementsByTagName("body")[0]); 
@@ -16,6 +17,8 @@ export default class InspectModal extends Component{
         super.build();
         let header = this._element.getElementsByClassName("header")[0];
         let headerButtons = header.getElementsByTagName("button");
+        this._imageTitle = header.querySelector('.ui .header');
+        
         //previous button
         headerButtons[0].addEventListener("click", ()=>{
             this._slideIndex--; 
@@ -34,7 +37,7 @@ export default class InspectModal extends Component{
     addImages(container){
         for(var image of this._images){
             let img = document.createElement("img");
-            img.src = image;
+            img.src = image.image;
             img.classList.add("ui","fluid", "image", "myslides");
             img.style.display = "none";
             container.append(img);
@@ -57,5 +60,7 @@ export default class InspectModal extends Component{
             slides[i].style.display= "none"; 
         }
         slides[this._slideIndex].style.display = "block"; 
+        this._imageTitle.innerHTML = this._images[this._slideIndex].label;
     }
+
 }
