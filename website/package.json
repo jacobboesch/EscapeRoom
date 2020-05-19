@@ -19,6 +19,7 @@
     "typings": "^2.1.1"
   },
   "dependencies": {
+    "collections": "^5.1.11",
     "css-loader": "^3.5.3",
     "html-loader": "^1.1.0",
     "interactjs": "^1.9.14",
