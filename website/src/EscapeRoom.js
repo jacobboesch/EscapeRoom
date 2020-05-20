@@ -2,6 +2,8 @@ import Loader from "./Loader";
 import TypeMappings from './TypeMappings';
 import Map from 'collections/map';
 import Contol from './Control';
+import Lock from "./Lock";
+import EnvelopeLock from "./EnvelopeLock";
 
 export default class EscapeRoom{
     _url;
@@ -38,20 +40,42 @@ export default class EscapeRoom{
         this._loader.label = "Building the escape room";
         let itemGroupMap = this._getItemGroupMap(data);
         let itemGroups = data.start.spawns;
-        this._buildItems(itemGroups, itemGroupMap);
+        // TODO ALLOW FOR DIFFERENT LOCK TYPES AND MORE THAN ONE LOCK
+        let envelopLockProperties = data.locks.envelopeLock.properties;
+        let lock = new EnvelopeLock(envelopLockProperties, itemGroupMap);
+          lock.build();
+        EscapeRoom.buildItems(itemGroups, itemGroupMap);
         Contol.addListeners();
         this._loader.isLoading = false;
+       
     }
     
-    _buildItems(itemGroups, itemGroupMap){
+    static buildItem(itemComponent){
+        itemComponent.build();
+    }
+
+    static removeItem(itemComponent){
+        itemComponent.getElement().remove();
+    }
+
+    static doToItemGroups(itemGroups, itemGroupMap, funcAction){
         for(var index in itemGroups){
             let groupName = itemGroups[index];
             let groupItems = itemGroupMap.get(groupName); 
             for(var itemIndex in groupItems){
-                groupItems[itemIndex].build(); 
+                funcAction(groupItems[itemIndex]); 
             }
         }
     }
+
+    static buildItems(itemGroups, itemGroupMap){
+        this.doToItemGroups(itemGroups, itemGroupMap, this.buildItem);
+    }
+    
+    static removeItems(itemGroups, itemGroupMap){
+        this.doToItemGroups(itemGroups, itemGroupMap, this.removeItem);
+    }
+
 
     _getItemGroupMap(data){
         let groupMap = new Map();
