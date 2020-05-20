@@ -21,6 +21,7 @@
   "dependencies": {
     "collections": "^5.1.11",
     "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
     "html-loader": "^1.1.0",
     "interactjs": "^1.9.14",
     "jquery": "^3.5.1",

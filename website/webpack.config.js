@@ -1,8 +1,11 @@
 const path = require('path');
 
+var webpack = require("webpack");
+ 
 module.exports = {
   mode: "development",
   entry: './src/index.js',
+  
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
@@ -27,9 +30,27 @@ module.exports = {
             plugins:['@babel/plugin-proposal-class-properties']
           }
         }
+      },
+      {
+        test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [{
+            loader: 'file-loader'
+        }]
+      },
+      {
+          test: /\.(png|jpg|gif)$/,
+          use: [{
+              loader: 'file-loader'
+          }]
       }
     ],
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+    })
+ ]
   
 };
 
