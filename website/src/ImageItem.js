@@ -9,6 +9,7 @@ export default class ImageItem extends FieldItem{
         let container = document.getElementsByTagName("body")[0];
         let position = {x:0, y:0};
         let angle = 0;
+        let size = {width: "120px", height:"120px"};
         if(options.container){
             container = options.container;
         }
@@ -18,7 +19,12 @@ export default class ImageItem extends FieldItem{
         if(options.angle){
             angle = options.angle;
         }
-        super(html, container, position, angle);
+
+        if(options.size != null){
+            size = options.size;
+        }
+       
+        super(html, container, position, angle, size);
         this.options = options;
         this._sideIndex = 0; 
     }
@@ -50,6 +56,7 @@ export default class ImageItem extends FieldItem{
     _setImage(src){
         let image = this._element.getElementsByTagName("img")[0];
         image.src = src;
+        
     }
     
     _buildImage(){
@@ -59,6 +66,7 @@ export default class ImageItem extends FieldItem{
         else{
             throw new Error("Unable to load image");
         }
+        
     }
 
     _buildInspector(){

@@ -12,13 +12,16 @@ export default class FieldItem extends Component{
     _angle;
     _dragResizeContainer;
     _rotationContainer;
+    _size;
 
-    constructor(html, container=null, position={x: 0, y:0}, angle=0){
+    constructor(html, container=null, position={x: 0, y:0}, angle=0,
+        size={width: "120px", height: "120px"}){
         super(html, container);
         this._position = position;
         this._angle = angle;
         this._dragResizeContainer = null;
         this._rotationContainer = null;
+        this._size = size;
     }
     
     _getDragResizeContainer(){
@@ -32,8 +35,10 @@ export default class FieldItem extends Component{
 
     build(){
         super.build();
-        this._getDragResizeContainer();
         this._dragResizeContainer = this._getDragResizeContainer();
+        this._dragResizeContainer.style.width = this._size.width;
+        this._dragResizeContainer.style.height = this._size.height;
+        
         this._rotationContainer = this._dragResizeContainer.querySelector('.rotation-container');
         let rotationHandle = new RotationHandle(this._rotationContainer);
         rotationHandle.build();
