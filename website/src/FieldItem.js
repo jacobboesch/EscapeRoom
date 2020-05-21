@@ -151,5 +151,13 @@ export default class FieldItem extends Component{
     get angle(){
         return this.angle;
     }
-
+    
+    get size(){
+        return this._size;
+    }
+    
+    set size(size){
+        this._size.width = size.width;
+        this._size.height = size.height;
+    }
 }
