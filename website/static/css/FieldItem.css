@@ -9,6 +9,8 @@
     height: 120px;
     /* This makes things *much* easier */
     box-sizing: border-box;
+    position: relative;
+    z-index: 1;
 }
 
 .inspector {
@@ -32,8 +34,8 @@
     padding: 3px 4px;
     display: table;
     position: absolute;
-    left: 15%;
-    right: 15%;
+    left: 20%;
+    right: 20%;
     bottom: -35px; 
     background-color: #00ff00;
     border-radius: 10rem;

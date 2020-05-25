@@ -51,6 +51,20 @@ export default class Control{
               endOnly: true
             })
           ]
+        })
+        .dropzone({
+          accept:'.drag-resize-container',
+          overlap: 0.01,
+          ondragenter: (event)=>{
+            let draggedElement = event.relatedTarget; 
+            let dragedOver = event.target; 
+            let dragedOverZIndex =parseInt(dragedOver.style.zIndex,10);
+            if(!dragedOverZIndex){
+              dragedOver.style.zIndex = 0;
+            }
+            let draggedZ = dragedOverZIndex ? dragedOverZIndex + 1 : 1;
+            draggedElement.style.zIndex = draggedZ;
+          }
         });
         
       interact('.rotation-handle')
