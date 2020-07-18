@@ -1,0 +1,75 @@
+ {
+    "items":{
+        "testItem":{
+            "type": "ImageItem",
+            "properties":{
+                "image": "https://semantic-ui.com/images/wireframe/image.png",
+                "inspectImages":[
+                    {
+                        "image":"https://semantic-ui.com/images/wireframe/image.png",
+                        "label" : "Wire Frame"
+                    },
+                    {
+                        "image": "https://www.w3schools.com/w3css/img_mountains.jpg", 
+                        "label": "Mountain"
+                    }     
+                ],
+                "sides":[
+                    "https://semantic-ui.com/images/wireframe/image.png", 
+                    "https://www.w3schools.com/w3css/img_mountains.jpg"
+                ]
+            }
+        }
+   },
+   "groups":{
+       "startGroup":[
+           {
+             "type": "item",
+             "name": "testItem",
+             "spawn": {"x": 0, "y": 0}
+           },
+           {
+            "type": "item",
+            "name": "testItem",
+            "spawn": {"x": 0, "y": 0}
+          }
+       ],
+       "secondGroup":[
+          {
+           "type": "item",
+           "name": "testItem",
+           "spawn": {"x": 25, "y": 25}
+         } 
+       ]
+   },
+   "locks":{
+       "envelopeLock":{
+           "type": "EnvelopeLock",
+           "properties":{
+            "buttons":{
+                "envelope1":{
+                    "label": "First Envelope", 
+                    "color": "green",
+                    "unlocks":["secondGroup"],
+                    "removes":["startGroup"]
+                },
+                "envelope2":{
+                  "label": "Second Envelope",
+                  "color": "purple",
+                  "unlocks":["startGroup"],
+                  "removes":["secondGroup"]
+                },
+                "envelope3":{
+                  "label": "Thrid Envelope",
+                  "color": "orange",
+                  "unlocks":["secondGroup"], 
+                  "removes":["startGroup"]
+                }
+              }
+           }
+       }
+   },
+   "start":{
+       "spawns":["startGroup"]
+   }
+}
