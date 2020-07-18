@@ -2,6 +2,8 @@
 
 This program is designed to allow people to play an escape room virtually.
 
+Here's the tutorial on how to make your own escape rooms using this program: https://youtu.be/P7TJX889G-0
+
 To run the program create a folder named dist
 in the website folder. 
 
